@@ -14,7 +14,7 @@ namespace Vulild.Service
         /// </summary>
         public Type Type { get; set; }
 
-        /// <summary>
+        /// <summary> 
         /// Type的子类
         /// </summary>
         public List<TypeRela> Children { get; set; } = new List<TypeRela>();
