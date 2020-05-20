@@ -7,10 +7,15 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>../Build/Vulild.Service.Log</OutputPath>
+    <OutputPath>../Build/Vulild.Service.NLogService</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NLog" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Vulild.Service.Log\Vulild.Service.Log.csproj" />
     <ProjectReference Include="..\Vulild.Service\Vulild.Service.csproj" />
   </ItemGroup>
 

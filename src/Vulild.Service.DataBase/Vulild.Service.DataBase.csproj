@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
+    <Version>2020.4.9.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>../Build/Vulild.Service.DataBase</OutputPath>
+  </PropertyGroup>
+
+  <!--<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.3" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+    <Reference Include="System.Web"></Reference>
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <ProjectReference Include="..\Vulild.Service.Log\Vulild.Service.Log.csproj" />
+    <ProjectReference Include="..\Vulild.Service\Vulild.Service.csproj" />
+  </ItemGroup>
+
+</Project>

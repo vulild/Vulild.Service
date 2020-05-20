@@ -2,16 +2,17 @@
 
   <PropertyGroup>
     <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
-    <Version>2020.4.8.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>MQ服务抽象</Description>
+    <Version>2020.4.8.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>../Build/XlSoft.Service.Log</OutputPath>
+    <OutputPath>../Build/Vulild.Service.MQ</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\XlSoft.Service\XlSoft.Service.csproj" />
+    <ProjectReference Include="..\Vulild.Service\Vulild.Service.csproj" />
   </ItemGroup>
 
 </Project>

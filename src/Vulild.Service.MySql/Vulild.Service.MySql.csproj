@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
+    <Version>2020.4.8.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>../Build/Vulild.Service.MySql</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="MySql.Data" Version="8.0.19" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
+    <PackageReference Include="MySql.Data" Version="6.9.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Vulild.Service.DataBase\Vulild.Service.DataBase.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
+    <Version>2020.4.8.1</Version>
+    <Description>redis服务封装</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>../Build/Vulild.Service.Redis</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSRedisCore" Version="3.5.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Vulild.Service.MQ\Vulild.Service.MQ.csproj" />
+    <ProjectReference Include="..\Vulild.Service.Store\Vulild.Service.Store.csproj" />
+    <ProjectReference Include="..\Vulild.Service\Vulild.Service.csproj" />
+  </ItemGroup>
+
+</Project>
