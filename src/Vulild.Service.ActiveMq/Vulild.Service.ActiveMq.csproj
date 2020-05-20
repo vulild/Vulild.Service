@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <OutputPath>../Build/XlSoft.Service.ActiveMq</OutputPath>
+    <OutputPath>../Build/Vulild.Service.ActiveMq</OutputPath>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
-    <PackageReference Include="XlSoft.ActiveMq" Version="2020.423.806.31" />
+    <PackageReference Include="Vulild.ActiveMq" Version="2020.520.1627.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net45'">
