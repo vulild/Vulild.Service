@@ -42,8 +42,8 @@ consumerService.OnMessage += OnMessage;
 }
 
 static void OnMessage(string topic, string message)
-        {
-            Console.WriteLine(message);
-        }
+{
+	Console.WriteLine(message);
+}
 
 ```
