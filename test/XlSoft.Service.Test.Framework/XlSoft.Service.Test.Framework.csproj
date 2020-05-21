@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B6A1139-FA7E-483D-88A0-4547D606F74D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>XlSoft.Service.Test.Framework</RootNamespace>
+    <AssemblyName>XlSoft.Service.Test.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Vulild.Service.ActiveMq\Vulild.Service.ActiveMq.csproj">
+      <Project>{526ca596-0afa-4f39-8991-8c4b65ee94f6}</Project>
+      <Name>Vulild.Service.ActiveMq</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.DataBase\Vulild.Service.DataBase.csproj">
+      <Project>{edb8bd8d-1208-4110-b528-85ab8bb71d79}</Project>
+      <Name>Vulild.Service.DataBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.Kafka\Vulild.Service.Kafka.csproj">
+      <Project>{b5988d0f-9d0f-4e43-9136-665fc17e199b}</Project>
+      <Name>Vulild.Service.Kafka</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.Log\Vulild.Service.Log.csproj">
+      <Project>{894a99a1-d281-4a31-a578-ee2576a1ce4e}</Project>
+      <Name>Vulild.Service.Log</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.MQ\Vulild.Service.MQ.csproj">
+      <Project>{fbff0627-02d0-4259-b3e9-537637a7ba8c}</Project>
+      <Name>Vulild.Service.MQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.MySql\Vulild.Service.MySql.csproj">
+      <Project>{01cdf153-78fd-4083-a73a-d6de682b82b8}</Project>
+      <Name>Vulild.Service.MySql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.NLog\Vulild.Service.NLogService.csproj">
+      <Project>{4c1949eb-b175-4e2b-8419-65914c167f95}</Project>
+      <Name>Vulild.Service.NLogService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.Redis\Vulild.Service.Redis.csproj">
+      <Project>{209f198b-8c71-4d5b-b5b5-90ae32ace942}</Project>
+      <Name>Vulild.Service.Redis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service.Store\Vulild.Service.Store.csproj">
+      <Project>{f7dda726-1d89-4fe1-ae72-d079cfd8c4b3}</Project>
+      <Name>Vulild.Service.Store</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Vulild.Service\Vulild.Service.csproj">
+      <Project>{e9ecb121-d6c5-4f5c-8b7a-09c79e5dab09}</Project>
+      <Name>Vulild.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
