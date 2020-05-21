@@ -63,8 +63,8 @@ static void OnMessage(string topic, string message)
      new ActiveMqServiceOption()
      {
      Hosts = new List<string> { "tcp://127.0.0.1:61616" },
-     Password = "gelz1122",
-     UserName = "vulild"
+     Password = "密码",
+     UserName = "用户名"
      });
 ```
 
