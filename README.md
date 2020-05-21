@@ -49,7 +49,7 @@ static void OnMessage(string topic, string message)
 
 四、更换服务
 
-若想更换服务，比如从kafka更换到activemq，则只需更换初始化代码的配置项即可，代码如下：
+若想更换服务，比如从kafka更换到activemq，则只需更换初始化代码的配置项即可,从而达到服务和业务解耦的目的，代码如下：
 
 ```c#
 //ServiceUtil.InitService(
