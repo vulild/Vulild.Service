@@ -34,15 +34,15 @@ namespace Vulild.Service.Test
 
         static void InitService()
         {
-            Vulild.Core.Assmblys.AssmblyUtil.SearchAllAssmbly();
-            ServiceUtil.SearchAssmbly();
-            //ServiceUtil.InitService(
-            //    "kafkatest",
-            //    new KafkaServiceOption
-            //    {
-            //        Hosts = new List<string> { "199.199.199.64:9091", "199.199.199.64:9092", "199.199.199.64:9093" },
-            //        GroupId = "vulild"
-            //    });
+            Vulild.Core.Assmblys.AssmblyUtil.SearchAllAssmbly(ServiceUtil.TypeDeal);
+            //ServiceUtil.SearchAssmbly();
+            ServiceUtil.InitService(
+                "kafkatest",
+                new KafkaServiceOption
+                {
+                    Hosts = new List<string> { "199.199.199.64:9091", "199.199.199.64:9092", "199.199.199.64:9093" },
+                    GroupId = "vulild"
+                });
             //ServiceUtil.InitService(
             //    "kafkatest1",
             //    new KafkaServiceOption

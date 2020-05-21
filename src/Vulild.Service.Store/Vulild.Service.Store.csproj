@@ -2,9 +2,12 @@
 
   <PropertyGroup>
     <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
-    <Version>2020.4.8.1</Version>
+    <Version>2020.0521.0843</Version>
     <Description>存储服务抽象</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>vulild</Authors>
+    <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/vulild/Vulild.Service</RepositoryUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
