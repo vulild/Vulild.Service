@@ -21,13 +21,13 @@ ServiceUtil.InitService(
 
 三、调用服务
 
-kafka支持Queue模式的发布订阅。代码如下：
+kafka支持Topic模式的发布订阅。代码如下：
 
 1）生产者
 
 ```c#
-var produceService = ServiceUtil.GetService<IQueueProducerService>();//获取生产者服务，此处依赖IQueueProducerService，不依赖具体实现。
-produceService.SendQueueMessage("vulild", new TestData { Ticks = ticks });
+var produceService = ServiceUtil.GetService<ITopicProducerService>();//获取生产者服务，此处依赖IQueueProducerService，不依赖具体实现。
+produceService.SendTopicMessage("vulild", new TestData { Ticks = ticks });
 ```
 
 2）消费者
@@ -35,10 +35,10 @@ produceService.SendQueueMessage("vulild", new TestData { Ticks = ticks });
 ```c#
 public void ConsumerTest()
 {
-    var consumerService = ServiceUtil.GetService<IQueueConsumerService>();
+    var consumerService = ServiceUtil.GetService<ITopicConsumerService>();
     CancellationTokenSource cts = new CancellationTokenSource();
     consumerService.OnMessage += OnMessage;
-    consumerService.SubscribeQueue(new List<string> { "vulild" }, cts.Token);
+    consumerService.SubscribeTopic(new List<string> { "vulild" }, cts.Token);
 }
 
 static void OnMessage(string topic, string message)
