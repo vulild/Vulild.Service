@@ -37,8 +37,8 @@ public void ConsumerTest()
 {
     var consumerService = ServiceUtil.GetService<ITopicConsumerService>();//获取消费者服务
     CancellationTokenSource cts = new CancellationTokenSource();
-consumerService.OnMessage += OnMessage;
-    consumerService.SubscribeTopic(new List<string> 	{ "vulild" }, cts.Token);
+    consumerService.OnMessage += OnMessage;
+    consumerService.SubscribeTopic(new List<string>{ "vulild" }, cts.Token);
 }
 
 static void OnMessage(string topic, string message)
