@@ -21,7 +21,7 @@ ServiceUtil.InitService(
 
 三、调用服务
 
-kafka支持topic模式的发布订阅。代码如下：
+kafka支持Queue模式的发布订阅。代码如下：
 
 1）生产者
 
