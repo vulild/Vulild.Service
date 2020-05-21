@@ -35,15 +35,15 @@ produceService.SendQueueMessage("vulild", new TestData { Ticks = ticks });
 ```c#
 public void ConsumerTest()
 {
-    var consumerService = ServiceUtil.GetService<ITopicConsumerService>();//获取消费者服务
+    var consumerService = ServiceUtil.GetService<IQueueConsumerService>();
     CancellationTokenSource cts = new CancellationTokenSource();
     consumerService.OnMessage += OnMessage;
-    consumerService.SubscribeTopic(new List<string>{ "vulild" }, cts.Token);
+    consumerService.SubscribeQueue(new List<string> { "vulild" }, cts.Token);
 }
 
 static void OnMessage(string topic, string message)
 {
-	Console.WriteLine(message);
+    Console.WriteLine(message);
 }
 
 ```
