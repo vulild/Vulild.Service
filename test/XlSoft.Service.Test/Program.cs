@@ -54,9 +54,9 @@ namespace Vulild.Service.Test
             //ServiceUtil.InitService("redistest",
             //    new RedisServiceOption
             //    {
-            //        MasterHost = "47.104.159.193:6379",
-            //        Password = "gelz1122",
-            //        Name = "vulildname",
+            //        MasterHost = "127.0.0.1:6379",
+            //        Password = "密码",
+            //        Name = "用户名",
             //        DefaultDatabase = 1,
             //        //IsDefault = true
             //    });
@@ -64,9 +64,9 @@ namespace Vulild.Service.Test
             //ServiceUtil.InitService("activemqtest",
             //    new ActiveMqServiceOption()
             //    {
-            //        Hosts = new List<string> { "tcp://47.104.159.193:61616" },
-            //        Password = "gelz1122",
-            //        UserName = "vulild"
+            //        Hosts = new List<string> { "tcp://127.0.0.1:61616" },
+            //        Password = "用户名",
+            //        UserName = "密码"
             //    });
 
             //ServiceUtil.InitConfig();
@@ -88,9 +88,9 @@ namespace Vulild.Service.Test
                 {
                     Host = "172.172.0.254",
                     Port = 13306,
-                    DataBase = "xlcloud",
-                    UserName = "xluser",
-                    Password = "xluser",
+                    DataBase = "vulild",
+                    UserName = "user",
+                    Password = "pwd",
                     DbFreeCloseTimer = 10000
                 });
 

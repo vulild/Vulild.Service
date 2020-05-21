@@ -52,7 +52,7 @@ namespace Vulild.Service.Test.Framework
             //    new RedisServiceOption
             //    {
             //        MasterHost = "47.104.159.193:6379",
-            //        Password = "gelz1122",
+            //        Password = "pwd",
             //        Name = "vulildname",
             //        DefaultDatabase = 1,
             //        //IsDefault = true
@@ -62,7 +62,7 @@ namespace Vulild.Service.Test.Framework
             //    new ActiveMqServiceOption()
             //    {
             //        Hosts = new List<string> { "tcp://47.104.159.193:61616" },
-            //        Password = "gelz1122",
+            //        Password = "pwd",
             //        UserName = "vulild"
             //    });
 
@@ -83,9 +83,9 @@ namespace Vulild.Service.Test.Framework
                 {
                     Host = "172.172.0.254",
                     Port = 13306,
-                    DataBase = "xlcloud",
-                    UserName = "xluser",
-                    Password = "xluser",
+                    DataBase = "v",
+                    UserName = "v",
+                    Password = "v",
                     DbFreeCloseTimer = 10000,
                 });
 
