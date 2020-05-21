@@ -45,5 +45,26 @@ static void OnMessage(string topic, string message)
 {
     Console.WriteLine(message);
 }
-
 ```
+
+四、更换服务
+
+若想更换服务，比如从kafka更换到activemq，则只需更换初始化代码的配置项即可，代码如下：
+
+```c#
+//ServiceUtil.InitService(
+//    "kafkatest",
+//    new KafkaServiceOption
+//    {
+//        Hosts = new List<string> { "199.199.199.64:9091", //"199.199.199.64:9092", "199.199.199.64:9093" },
+//        GroupId = "vulild"
+//    });
+ ServiceUtil.InitService("activemqtest",
+     new ActiveMqServiceOption()
+     {
+     Hosts = new List<string> { "tcp://127.0.0.1:61616" },
+     Password = "密码",
+     UserName = "用户名"
+     });
+```
+
