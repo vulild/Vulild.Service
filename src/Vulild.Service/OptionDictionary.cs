@@ -10,11 +10,22 @@ using System.Threading.Tasks;
 
 namespace Vulild.Service
 {
-    public class OptionDictionary : ConcurrentDictionary<string, Option>
+    public class OptionDictionary : IDictionary<string, Option>
     //where TOption : Option
     {
+        private ConcurrentDictionary<string, Option> _Options = new ConcurrentDictionary<string, Option>();
 
         public Dictionary<Type /*服务*/, Type /*配置*/> ServiceOptionTypeMap = new Dictionary<Type, Type>();
+
+        public ICollection<string> Keys => _Options.Keys;
+
+        public ICollection<Option> Values => _Options.Values;
+
+        public int Count => _Options.Count;
+
+        public bool IsReadOnly => false;
+
+        public Option this[string key] { get => _Options[key]; set => _Options[key] = value; }
 
         /// <summary>
         /// 设置默认服务配置，若有多个配置，则默认使用第一个
@@ -22,14 +33,14 @@ namespace Vulild.Service
         /// <param name="key"></param>
         public void SetDefaultOption(string key)
         {
-            if (!this.ContainsKey(key))
+            if (!this._Options.ContainsKey(key))
             {
                 throw new OptionNotFoundException();
             }
 
-            if (!this[key].IsDefault)
+            if (!this._Options[key].IsDefault)
             {
-                this[key].IsDefault = true;
+                this._Options[key].IsDefault = true;
             }
         }
 
@@ -50,7 +61,7 @@ namespace Vulild.Service
             //    throw new OptionNotFoundException();
             //}
 
-            var option = GetOption(this.Values);
+            var option = GetOption(this._Options.Values);
             if (option != null)
             {
                 return option;
@@ -71,7 +82,7 @@ namespace Vulild.Service
                 var optionType = ServiceOptionTypeMap[serviceType];
 
                 //匹配类型
-                var options = Values.Where(a => a.GetType().Equals(optionType));
+                var options = this._Options.Values.Where(a => a.GetType().Equals(optionType));
 
                 if (options.Any())
                 {
@@ -83,7 +94,7 @@ namespace Vulild.Service
             {
                 if (serviceType.IsAssignableFrom(map.Key))
                 {
-                    var opTypes = this.Values.Where(a => a.GetType().Equals(map.Value));
+                    var opTypes = this._Options.Values.Where(a => a.GetType().Equals(map.Value));
                     if (opTypes.Any())
                     {
                         tempOptions.AddRange(opTypes);
@@ -129,5 +140,37 @@ namespace Vulild.Service
         {
             return GetOption(typeof(TService));
         }
+
+        public void Add(string key, Option value)
+        {
+            _Options.TryAdd(key, value);
+        }
+
+        public bool ContainsKey(string key) => _Options.ContainsKey(key);
+
+
+        public bool Remove(string key) => _Options.TryRemove(key, out Option option);
+
+        public bool TryGetValue(string key, out Option value) => _Options.TryGetValue(key, out value);
+
+        public void Add(KeyValuePair<string, Option> item) { _Options.TryAdd(item.Key, item.Value); }
+
+        public void Clear()
+        {
+            _Options.Clear();
+        }
+
+        public bool Contains(KeyValuePair<string, Option> item) => _Options.Contains(item);
+
+        public void CopyTo(KeyValuePair<string, Option>[] array, int arrayIndex)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Remove(KeyValuePair<string, Option> item) => _Options.TryRemove(item.Key, out Option option);
+
+        public IEnumerator<KeyValuePair<string, Option>> GetEnumerator() => _Options.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => _Options.GetEnumerator();
     }
 }

@@ -36,13 +36,13 @@ namespace Vulild.Service.Test
         {
             Vulild.Core.Assmblys.AssmblyUtil.SearchAllAssmbly(ServiceUtil.TypeDeal);
             //ServiceUtil.SearchAssmbly();
-            ServiceUtil.InitService(
-                "kafkatest",
-                new KafkaServiceOption
-                {
-                    Hosts = new List<string> { "199.199.199.64:9091", "199.199.199.64:9092", "199.199.199.64:9093" },
-                    GroupId = "vulild"
-                });
+            //ServiceUtil.InitService(
+            //    "kafkatest",
+            //    new KafkaServiceOption
+            //    {
+            //        Hosts = new List<string> { "199.199.199.64:9091", "199.199.199.64:9092", "199.199.199.64:9093" },
+            //        GroupId = "vulild"
+            //    });
             //ServiceUtil.InitService(
             //    "kafkatest1",
             //    new KafkaServiceOption
@@ -86,8 +86,8 @@ namespace Vulild.Service.Test
             ServiceUtil.InitService("mysqltest",
                 new MySqlServiceOption
                 {
-                    Host = "172.172.0.254",
-                    Port = 13306,
+                    Host = "vulild.top",
+                    Port = 3306,
                     DataBase = "vulild",
                     UserName = "user",
                     Password = "pwd",

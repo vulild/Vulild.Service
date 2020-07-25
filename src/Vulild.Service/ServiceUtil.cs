@@ -167,7 +167,7 @@ namespace Vulild.Service
             }
             InitService(options =>
             {
-                options.TryAdd(key, option);
+                options.Add(key, option);
             });
 
         }
