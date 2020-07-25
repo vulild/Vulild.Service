@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XlSoft.Service.Test", "test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XlSoft.Service.Test.Framework", "test\XlSoft.Service.Test.Framework\XlSoft.Service.Test.Framework.csproj", "{1B6A1139-FA7E-483D-88A0-4547D606F74D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulild.Service.AssemblyService", "src\Vulild.Service.Assembly\Vulild.Service.AssemblyService.csproj", "{36933601-A2E4-4C26-98AF-7135235BCAA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{1B6A1139-FA7E-483D-88A0-4547D606F74D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B6A1139-FA7E-483D-88A0-4547D606F74D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B6A1139-FA7E-483D-88A0-4547D606F74D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36933601-A2E4-4C26-98AF-7135235BCAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36933601-A2E4-4C26-98AF-7135235BCAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36933601-A2E4-4C26-98AF-7135235BCAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36933601-A2E4-4C26-98AF-7135235BCAA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,6 +108,7 @@ Global
 		{E9ECB121-D6C5-4F5C-8B7A-09C79E5DAB09} = {AB532FD0-2AE9-4283-9F7B-97ED5542CD8A}
 		{B7EEF9C8-25E1-4094-B0A9-C4E90451C2B4} = {8238C390-AADD-469F-8ECE-3B9C9DBBBB00}
 		{1B6A1139-FA7E-483D-88A0-4547D606F74D} = {8238C390-AADD-469F-8ECE-3B9C9DBBBB00}
+		{36933601-A2E4-4C26-98AF-7135235BCAA1} = {AB532FD0-2AE9-4283-9F7B-97ED5542CD8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1290807F-6B66-4159-854B-B17C2CA00949}
