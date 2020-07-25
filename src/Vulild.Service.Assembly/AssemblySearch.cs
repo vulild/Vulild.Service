@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Vulild.Service.Attributes;
 
 namespace Vulild.Service.AssemblyService
 {
     public delegate void AssemblySearchTypeDeal(Type type);
 
     public delegate void AssemblySearchAssmblyDeal(Assembly assembly);
+
+
+    [ServiceOption(Type = typeof(AssemblySearchOption))]
     public class AssemblySearch
     {
         public event AssemblySearchAssmblyDeal AssemblyDeal;
