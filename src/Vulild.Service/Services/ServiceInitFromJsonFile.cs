@@ -15,9 +15,9 @@ namespace Vulild.Service.Services
         public string FileName { get; set; }
         public Option Option { get; set; }
 
-        public IEnumerable<Option> GetOptions()
+        public Dictionary<string, Option> GetOptions()
         {
-            List<Option> options = new List<Option>();
+            Dictionary<string, Option> options = new Dictionary<string, Option>();
             FileInfo fi = new FileInfo(FileName);
             var fs = fi.OpenRead();
             JArray settings = null;
@@ -36,11 +36,12 @@ namespace Vulild.Service.Services
             foreach (var setting in settings)
             {
                 string typeStr = setting["TypeName"].ToString();
+                string key = setting["Key"].ToString();
 
                 object optionObj = JsonConvert.DeserializeObject(setting["option"].ToString(), typeStr.ToType());
                 if (optionObj is Option option)
                 {
-                    options.Add(option);
+                    options.Add(key, option);
                 }
             }
             return options;

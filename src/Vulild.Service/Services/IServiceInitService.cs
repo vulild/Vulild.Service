@@ -6,6 +6,6 @@ namespace Vulild.Service.Services
 {
     public interface IServiceInitService : IService
     {
-        IEnumerable<Option> GetOptions();
+        Dictionary<string,Option> GetOptions();
     }
 }
