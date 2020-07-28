@@ -105,13 +105,18 @@ namespace Vulild.Service.AssemblyService
         {
             foreach (var path in _Paths)
             {
-                if (Directory.Exists(path))
+                string rPaht = $"{AppDomain.CurrentDomain.BaseDirectory}{path}";
+                if (Path.IsPathRooted(path))
                 {
-                    SearchDirectoryAssmbly(path);
+                    rPaht = path;
                 }
-                if (File.Exists(path))
+                if (Directory.Exists(rPaht))
                 {
-                    SearchFile(path);
+                    SearchDirectoryAssmbly(rPaht);
+                }
+                if (File.Exists(rPaht))
+                {
+                    SearchFile(rPaht);
                 }
             }
         }
