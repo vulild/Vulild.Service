@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Vulild.Service.Services
 {
-    interface IServiceInitService : IService
+    public interface IServiceInitService : IService
     {
         IEnumerable<Option> GetOptions();
     }
