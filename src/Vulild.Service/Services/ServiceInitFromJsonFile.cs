@@ -38,7 +38,7 @@ namespace Vulild.Service.Services
                 string typeStr = setting["TypeName"].ToString();
                 string key = setting["Key"].ToString();
 
-                object optionObj = JsonConvert.DeserializeObject(setting["option"].ToString(), typeStr.ToType());
+                object optionObj = JsonConvert.DeserializeObject(setting["Option"].ToString(), typeStr.ToType());
                 if (optionObj is Option option)
                 {
                     options.Add(key, option);
