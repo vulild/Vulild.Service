@@ -7,13 +7,9 @@ using Vulild.Service.Attributes;
 
 namespace Vulild.Service.AssemblyService
 {
-    public delegate void AssemblySearchTypeDeal(Type type);
-
-    public delegate void AssemblySearchAssmblyDeal(Assembly assembly);
-
 
     [ServiceOption(Type = typeof(AssemblySearchOption))]
-    public class AssemblySearch
+    public class AssemblySearch : IAssemblySearch
     {
         public event AssemblySearchAssmblyDeal AssemblyDeal;
 
@@ -37,20 +33,22 @@ namespace Vulild.Service.AssemblyService
             }
         }
 
-        private IEnumerable<string> _ExcludePath;
+        private IEnumerable<string> _ExcludePaths;
 
-        public IEnumerable<string> ExcludePath
+        public IEnumerable<string> ExcludePaths
         {
             get
             {
-                if (_ExcludePath == null)
+                if (_ExcludePaths == null)
                 {
-                    _ExcludePath = new List<string>();
+                    _ExcludePaths = new List<string>();
                 }
-                return _ExcludePath;
+                return _ExcludePaths;
             }
-            set { _ExcludePath = value; }
+            set { _ExcludePaths = value; }
         }
+
+        public Option Option { get; set; }
 
         public AssemblySearch()
         {
@@ -59,7 +57,7 @@ namespace Vulild.Service.AssemblyService
         public AssemblySearch(IEnumerable<string> path, IEnumerable<string> excludePath)
         {
             this._Paths = path;
-            this._ExcludePath = excludePath;
+            this._ExcludePaths = excludePath;
         }
 
         /// <summary>
@@ -146,7 +144,7 @@ namespace Vulild.Service.AssemblyService
         /// <returns></returns>
         bool IsExcludePath(string path)
         {
-            return this.ExcludePath != null && this.ExcludePath.Contains(path);
+            return this.ExcludePaths != null && this.ExcludePaths.Contains(path);
         }
     }
 }
