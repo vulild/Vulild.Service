@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2020.0728.1101</Version>
+    <Authors>Vulild</Authors>
+    <Company>Vulild</Company>
+    <Product>Vulild</Product>
   </PropertyGroup>
 
   <ItemGroup>
