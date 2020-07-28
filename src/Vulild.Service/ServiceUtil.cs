@@ -20,7 +20,13 @@ namespace Vulild.Service
 
         private static Dictionary<string /*远程类型*/, string /*本地类型*/> _MessageDataTypeMap = new Dictionary<string, string>();
 
-        private static Dictionary<Type /*服务*/, Type /*配置*/> _ServiceOptionTypeMap = new Dictionary<Type, Type>();
+        private static Dictionary<Type /*服务*/, Type /*配置*/> _ServiceOptionTypeMap
+        {
+            get
+            {
+                return _Options.ServiceOptionTypeMap;
+            }
+        }
 
         private static List<TypeRela> _RepoServiceTypes = new List<TypeRela>();
 
@@ -61,10 +67,10 @@ namespace Vulild.Service
                 _Options = new OptionDictionary();
             }
             options(_Options);
-            foreach (var option in _Options)
-            {
-                option.Value.MessageDataTypeMap = _MessageDataTypeMap;
-            }
+            //foreach (var option in _Options)
+            //{
+            //    option.Value.MessageDataTypeMap = _MessageDataTypeMap;
+            //}
             _Options.ServiceOptionTypeMap = _ServiceOptionTypeMap;
         }
 
@@ -176,7 +182,7 @@ namespace Vulild.Service
         /// 初始化配置
         /// </summary>
         /// <param name="fileName"></param>
-        public static void InitConfig(string fileName="ServiceConfig")
+        public static void InitConfig(string fileName = "ServiceConfig")
         {
             var filePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Configs");
             if (!System.IO.Directory.Exists(filePath))
@@ -193,13 +199,13 @@ namespace Vulild.Service
             var configHelper = new JsonConfigHelper(filePath);
             if (configHelper.jObject == null)
             {
-                throw new ConfigException("配置文件初始化异常!"); 
+                throw new ConfigException("配置文件初始化异常!");
             }
 
             foreach (var item in configHelper.jObject)
             {
-                var obj= item as JObject;
-                if(obj == null)
+                var obj = item as JObject;
+                if (obj == null)
                 {
                     throw new ConfigException("配置文件格式异常!");
                 }
@@ -218,7 +224,7 @@ namespace Vulild.Service
                 }
 
                 string opt = obj.SelectToken("Option")?.ToString();
-                var option =  JsonConvert.DeserializeObject(opt, optType) as Option;
+                var option = JsonConvert.DeserializeObject(opt, optType) as Option;
 
                 InitService(key, option);
             }

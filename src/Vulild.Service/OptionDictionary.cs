@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Vulild.Service
 {
@@ -143,6 +144,12 @@ namespace Vulild.Service
 
         public void Add(string key, Option value)
         {
+            Type type = value.GetType();
+            var attr = type.GetCustomAttribute<ServiceOptionAttribute>();
+            if (attr != null)
+            {
+                this.ServiceOptionTypeMap.Add(attr.Type, type);
+            }
             _Options.TryAdd(key, value);
         }
 
@@ -153,7 +160,7 @@ namespace Vulild.Service
 
         public bool TryGetValue(string key, out Option value) => _Options.TryGetValue(key, out value);
 
-        public void Add(KeyValuePair<string, Option> item) { _Options.TryAdd(item.Key, item.Value); }
+        public void Add(KeyValuePair<string, Option> item) { this.Add(item.Key, item.Value); }
 
         public void Clear()
         {

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Vulild.Service.Attributes;
 
 namespace Vulild.Service.AssemblyService
 {
+    [ServiceOption(Type = typeof(AssemblySearch))]
     public class AssemblySearchOption : Option
     {
         AssemblySearch assemblySearch;
