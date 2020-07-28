@@ -6,9 +6,13 @@ namespace Vulild.Service.Services
 {
     public class ServiceInitServiceOption : Option
     {
+        public string FileName;
         public override IService CreateService()
         {
-            throw new NotImplementedException();
+            return new ServiceInitFromJsonFile
+            {
+                FileName = this.FileName
+            };
         }
     }
 }
