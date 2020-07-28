@@ -21,15 +21,9 @@ namespace Vulild.Service.Services
             FileInfo fi = new FileInfo(FileName);
             var fs = fi.OpenRead();
             JArray settings = null;
-#if NETFRAMEWORK
+
             byte[] buffer = new byte[fs.Length];
             fs.Read(buffer, 0, buffer.Length);
-
-#else
-            Span<byte> buffer = new Span<byte>();
-            fs.Read(buffer);
-#endif
-
             settings = (JArray)JsonConvert.DeserializeObject(Encoding.UTF8.GetString(buffer));
 
 
