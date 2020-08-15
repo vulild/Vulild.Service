@@ -169,12 +169,19 @@ namespace Vulild.Service
             }
             if (_Options.ContainsKey(key))
             {
-                throw new OptionKeyException();
+                InitService(options =>
+                {
+                    options[key] = option;
+                });
             }
-            InitService(options =>
+            else
             {
-                options.Add(key, option);
-            });
+                InitService(options =>
+                {
+                    options.Add(key, option);
+                });
+            }
+
 
         }
 
