@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
+    <Version>2020.0817.2359.1</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
