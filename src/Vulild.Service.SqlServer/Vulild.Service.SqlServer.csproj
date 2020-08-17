@@ -6,6 +6,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
+    <OutputPath>../Build/Vulild.Service.SqlServer</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Vulild.Service.DataBase\Vulild.Service.DataBase.csproj" />
     <ProjectReference Include="..\Vulild.Service\Vulild.Service.csproj" />

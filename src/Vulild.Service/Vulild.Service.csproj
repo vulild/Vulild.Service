@@ -9,6 +9,10 @@
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
+    <OutputPath>../Build/Vulild.Service</OutputPath>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Vulild.Core" Version="2020.817.2342.1" />
