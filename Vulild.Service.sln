@@ -33,7 +33,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XlSoft.Service.Test.Framewo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.AssemblyService", "src\Vulild.Service.Assembly\Vulild.Service.AssemblyService.csproj", "{36933601-A2E4-4C26-98AF-7135235BCAA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulild.Service.SqlServer", "Vulild.Service.SqlServer\Vulild.Service.SqlServer.csproj", "{98EE2D5F-F6B6-45AB-A534-3A44D26507DA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulild.Service.SqlServer", "src\Vulild.Service.SqlServer\Vulild.Service.SqlServer.csproj", "{98EE2D5F-F6B6-45AB-A534-3A44D26507DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
