@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vulild.Core" Version="2020.515.1501" />
+    <PackageReference Include="Vulild.Core" Version="2020.817.2342.1" />
   </ItemGroup>
 
   <ItemGroup>

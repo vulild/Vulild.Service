@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Vulild.Core;
 
 namespace Vulild.Service.DataBase
 {
@@ -106,6 +107,16 @@ namespace Vulild.Service.DataBase
             {
                 FreeDbConnection(conn);
             }
+        }
+
+        public List<T> ExecuteQuery<T>(string sql, Dictionary<string, object> dbParams) where T : new()
+        {
+            List<T> lst = new List<T>();
+            ExecuteQuery(sql, dbParams, dr =>
+            {
+                lst = dr.ToList<T>();
+            });
+            return lst;
         }
 
         public object ExecuteScalar(string sql, Dictionary<string, object> dbParams)
