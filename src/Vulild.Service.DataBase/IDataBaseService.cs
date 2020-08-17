@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Vulild.Core;
 
 namespace Vulild.Service.DataBase
 {
@@ -22,6 +23,8 @@ namespace Vulild.Service.DataBase
         /// <param name="dbParams">参数化</param>
         /// <param name="readAction">读取IDataReader</param>
         void ExecuteQuery(string sql, Dictionary<string, object> dbParams, Action<IDataReader> readAction);
+
+        List<T> ExecuteQuery<T>(string sql, Dictionary<string, object> dbParams) where T : new();
 
         /// <summary>
         /// 读取第一行第一列
