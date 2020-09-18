@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
-using Vulild.Core;
+using Vulild.Core.Orm;
 
 namespace Vulild.Service.DataBase
 {

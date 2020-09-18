@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Vulild.Core" Version="2020.817.2342.1" />
+    <PackageReference Include="Vulild.Core" Version="2020.918.1903.1" />
   </ItemGroup>
 
 </Project>
