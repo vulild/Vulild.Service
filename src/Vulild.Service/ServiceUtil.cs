@@ -124,7 +124,7 @@ namespace Vulild.Service
                     }
                     else
                     {
-                        throw new TypeRepeatException();
+                        _MessageDataTypeMap[attr.RemoteKey] = type.FullName;
                     }
                 }
             }
@@ -145,7 +145,7 @@ namespace Vulild.Service
                     }
                     else
                     {
-                        throw new ServiceOptionRepeatException();
+                        _ServiceOptionTypeMap[type] = attr.Type;
                     }
                 }
             }
