@@ -20,6 +20,7 @@ namespace Vulild.Service.Services
             Dictionary<string, Option> options = new Dictionary<string, Option>();
             FileInfo fi = new FileInfo(FileName);
             var fs = fi.OpenRead();
+
             JArray settings = null;
 
             byte[] buffer = new byte[fs.Length];
@@ -38,6 +39,9 @@ namespace Vulild.Service.Services
                     options.Add(key, option);
                 }
             }
+
+            fs.Close();
+            fs.Dispose();
             return options;
         }
     }

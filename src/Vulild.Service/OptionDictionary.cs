@@ -157,7 +157,15 @@ namespace Vulild.Service
                     this.ServiceOptionTypeMap[attr.Type] = type;
                 }
             }
-            _Options.TryAdd(key, value);
+            if (_Options.ContainsKey(key))
+            {
+                _Options[key] = value;
+            }
+            else
+            {
+                _Options.TryAdd(key, value);
+            }
+
         }
 
         public bool ContainsKey(string key) => _Options.ContainsKey(key);
