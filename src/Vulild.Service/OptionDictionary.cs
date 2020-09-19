@@ -148,7 +148,14 @@ namespace Vulild.Service
             var attr = type.GetCustomAttribute<ServiceOptionAttribute>();
             if (attr != null)
             {
-                this.ServiceOptionTypeMap.Add(attr.Type, type);
+                if (!this.ServiceOptionTypeMap.ContainsKey(attr.Type))
+                {
+                    this.ServiceOptionTypeMap.Add(attr.Type, type);
+                }
+                else
+                {
+                    this.ServiceOptionTypeMap[attr.Type] = type;
+                }
             }
             _Options.TryAdd(key, value);
         }
