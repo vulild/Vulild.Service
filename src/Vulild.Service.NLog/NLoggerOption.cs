@@ -2,6 +2,7 @@
 using NLog.Targets;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace Vulild.Service.NLogService
@@ -13,12 +14,12 @@ namespace Vulild.Service.NLogService
         /// <summary>
         /// 日志文件名称
         /// </summary>
-        public string FileName { get; set; } = $"${{basedir}}\\Logs\\log{DateTime.Now.ToString("yyyyMMddHHmmss")}.txt";
+        public string FileName { get; set; } = $"${{basedir}}{Path.DirectorySeparatorChar}Logs{Path.DirectorySeparatorChar}log{DateTime.Now.ToString("yyyyMMddHHmmss")}.txt";
 
         /// <summary>
         /// 备份路径及名称规则,不带扩展名
         /// </summary>
-        public string ArchiveFileName { get; set; } = "${basedir}\\Logs\\${shortdate}\\log.{#####}";
+        public string ArchiveFileName { get; set; } = "${basedir}{Path.DirectorySeparatorChar}Logs{Path.DirectorySeparatorChar}${shortdate}{Path.DirectorySeparatorChar}log.{#####}";
 
         /// <summary>
         /// 备份文件大小
