@@ -27,7 +27,7 @@ namespace Vulild.Service.MySql
         protected override IDbConnection GetRealDb()
         {
             var conn = new MySqlConnection("Server=" + this.Host + ";" + (this.Port != 3306 ? "Port=" + this.Port + ";" : "") +
-                "Database=" + this.DataBase + ";Uid=" + this.UserName + ";pwd=" + this.Password + ";Connect Timeout=10;" +
+                "Database=" + this.DataBase + ";Uid=" + this.UserName + ";pwd=" + this.Password + ";Connect Timeout=20;;pooling=false;" +
                 (this.CommandTimeout.HasValue ? "Default Command Timeout=" + this.CommandTimeout.Value + ";" : "") + (this.ConnectionLifetime.HasValue ? "Connection Lifetime=" + this.ConnectionLifetime.Value + ";" : ""));
             conn.Open();
 
