@@ -301,5 +301,17 @@ namespace Vulild.Service.DataBase
                 conn.Close();
             }
         }
+
+        public override IService CreateService()
+        {
+            DataBaseService service = GetService();
+            service.OnConnectionFree += conn =>
+            {
+                FreeDbConnection(conn);
+            };
+            return service;
+        }
+
+        protected abstract DataBaseService GetService();
     }
 }

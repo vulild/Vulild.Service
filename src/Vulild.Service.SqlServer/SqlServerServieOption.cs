@@ -11,13 +11,10 @@ namespace Vulild.Service.SqlServer
 {
     public class SqlServerServieOption : DataBaseServiceOption
     {
-        public override IService CreateService()
+        protected override DataBaseService GetService()
         {
             SqlServerService service = new SqlServerService();
-            service.OnConnectionFree += conn =>
-            {
-                FreeDbConnection(conn);
-            };
+            
             return service;
         }
 

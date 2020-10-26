@@ -21,13 +21,10 @@ namespace Vulild.Service.MySql
 
         public int? MinPoolSize { get; set; } = 10;
 
-        public override IService CreateService()
+        protected override DataBaseService GetService()
         {
             MysqlService service = new MysqlService();
-            service.OnConnectionFree += conn =>
-            {
-                FreeDbConnection(conn);
-            };
+
             return service;
         }
 
