@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Vulild.Service.DataBase\Vulild.Service.DataBase.csproj" />
+    <ProjectReference Include="..\..\Vulild.Service.DataBase\Vulild.Service.DataBase.csproj" />
   </ItemGroup>
 
 </Project>

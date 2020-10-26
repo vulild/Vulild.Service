@@ -340,3 +340,4 @@ ASALocalRun/
 healthchecksdb
 /src/Build
 /Vulild.Service.SQLite/Build/Vulild.Service.SQLite/netstandard2.1
+/src/Vulild.Service.SQLite/Build/Vulild.Service.SQLite/netstandard2.1
