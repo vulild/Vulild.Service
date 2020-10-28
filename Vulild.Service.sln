@@ -37,7 +37,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.SqlServer", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.TcpService", "Vulild.Service.TcpService\Vulild.Service.TcpService.csproj", "{0E0B27AC-666C-4B5F-BFA8-A4299ACE2167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulild.Service.SQLite", "src\Vulild.Service.SQLite\Vulild.Service.SQLite\Vulild.Service.SQLite.csproj", "{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulild.Service.SQLite", "src\Vulild.Service.SQLite\Vulild.Service.SQLite.csproj", "{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
