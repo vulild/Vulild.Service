@@ -51,7 +51,7 @@ namespace Vulild.Service.DataBase
 
         public int ExecuteNonQuery(string sql, Dictionary<string, object> dbParams)
         {
-            IDbConnection conn = _ThisOption.GetDbConnection(false);
+            IDbConnection conn = _ThisOption.GetDbConnection(true);
             try
             {
                 using (IDbCommand cmd = conn.CreateCommand())

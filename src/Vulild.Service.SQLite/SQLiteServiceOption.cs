@@ -17,7 +17,9 @@ namespace Vulild.Service.SQLite
 
         protected override IDbConnection GetRealDb()
         {
-            return new SQLiteConnection(FileName);
+            var conn = new SQLiteConnection($"data source={FileName}");
+            conn.Open();
+            return conn;
         }
     }
 }
