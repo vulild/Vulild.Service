@@ -94,7 +94,7 @@ namespace Vulild.Service.AssemblyService
                     TypeDeal?.Invoke(type);
                 }
             }
-            catch (BadImageFormatException)
+            catch (Exception)
             {
 
                 //throw;
