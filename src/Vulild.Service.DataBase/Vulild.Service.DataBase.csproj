@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
-    <Version>2020.1104.2341.1</Version>
+    <Version>2020.1127.1716.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vulild</Authors>
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
@@ -12,6 +12,10 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <OutputPath>../Build/Vulild.Service.DataBase</OutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Vulild.Core" Version="2020.1127.1559.1" />
+  </ItemGroup>
 
   <!--<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.3" />
