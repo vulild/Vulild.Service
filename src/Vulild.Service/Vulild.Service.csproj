@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
+  <PropertyGroup >
     <OutputPath>../Build/Vulild.Service</OutputPath>
   </PropertyGroup>
 

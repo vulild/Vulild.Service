@@ -9,7 +9,7 @@
     <RepositoryUrl>https://github.com/vulild/Vulild.Service</RepositoryUrl>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup>
     <OutputPath>../Build/Vulild.Service.ActiveMq</OutputPath>
   </PropertyGroup>
 

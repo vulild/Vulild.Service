@@ -10,7 +10,7 @@ namespace Vulild.Service.DataBase
 {
     public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete
     {
-        public int? Id { get; set; }
+        public abstract string Id { get; }
 
         protected virtual string TableName
         {
@@ -23,9 +23,9 @@ namespace Vulild.Service.DataBase
         public int Delete()
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
-            string sql = $"delete from {TableName} where id={Id}";
+            string sql = $"delete from {TableName} where id={db.GetParameterName("Id")}";
 
-            return db.ExecuteNonQuery(sql, null);
+            return db.ExecuteNonQuery(sql, new Dictionary<string, object> { { "Id", Id } });
         }
 
         private Dictionary<string, object> getColumns()
@@ -45,6 +45,7 @@ namespace Vulild.Service.DataBase
             var db = ServiceUtil.GetService<IDataBaseService>();
 
             var colDic = getColumns();
+            colDic.Add("Id", Guid.NewGuid().ToString());
             string columnsSql = string.Join(" , ", colDic.Keys);
             string valueSql = string.Join(",", colDic.Select(a => db.GetParameterName(a.Key)));
 
@@ -60,8 +61,9 @@ namespace Vulild.Service.DataBase
 
             string colSql = string.Join(",", colDic.Select(a => $"{a.Key}={db.GetParameterName(a.Key)}"));
 
-            string sql = $"update {TableName} set {colSql} where id={Id}";
+            string sql = $"update {TableName} set {colSql} where id={db.GetParameterName("Id")}";
 
+            colDic.Add("Id", Id);
             return db.ExecuteNonQuery(sql, colDic);
         }
     }
