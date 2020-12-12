@@ -10,7 +10,7 @@ namespace Vulild.Service.DataBase
 {
     public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete
     {
-        public abstract string Id { get; }
+        public string Id;
 
         protected virtual string TableName
         {
@@ -44,8 +44,9 @@ namespace Vulild.Service.DataBase
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
 
+            Id = Guid.NewGuid().ToString();
+
             var colDic = getColumns();
-            colDic.Add("Id", Guid.NewGuid().ToString());
             string columnsSql = string.Join(" , ", colDic.Keys);
             string valueSql = string.Join(",", colDic.Select(a => db.GetParameterName(a.Key)));
 
@@ -63,7 +64,6 @@ namespace Vulild.Service.DataBase
 
             string sql = $"update {TableName} set {colSql} where id={db.GetParameterName("Id")}";
 
-            colDic.Add("Id", Id);
             return db.ExecuteNonQuery(sql, colDic);
         }
     }

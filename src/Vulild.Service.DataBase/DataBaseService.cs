@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using Vulild.Core.FormatConversion;
 using Vulild.Core.Orm;
 
 namespace Vulild.Service.DataBase
@@ -186,5 +187,21 @@ namespace Vulild.Service.DataBase
         public abstract IDbDataParameter GetParameter(KeyValuePair<string, object> value);
 
         public abstract string GetParameterName(string param);
+
+        public virtual int GetCount(string sql)
+        {
+            string countSql = $"select count(*) from ({sql}) a";
+
+            return ExecuteScalar(countSql, null).ToInt();
+        }
+
+        //public abstract string GetPageSql(string sql, int pageNum, int pageSize);
+
+        //public List<T> GetPageData<T>(string sql, int pageNum, int pageSize, Dictionary<string, object> dbParams) where T : new()
+        //{
+        //    string pageSql = GetPageSql(sql, pageNum, pageSize);
+
+        //    return ExecuteQuery<T>(pageSql, dbParams);
+        //}
     }
 }
