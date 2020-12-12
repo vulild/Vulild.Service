@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.SqlServer", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.TcpService", "Vulild.Service.TcpService\Vulild.Service.TcpService.csproj", "{0E0B27AC-666C-4B5F-BFA8-A4299ACE2167}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulild.Service.SQLite", "src\Vulild.Service.SQLite\Vulild.Service.SQLite.csproj", "{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.SQLite", "src\Vulild.Service.SQLite\Vulild.Service.SQLite.csproj", "{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpService", "src\HttpService\HttpService.csproj", "{9499D9AF-CD3C-4961-A360-0607817F7918}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,6 +111,10 @@ Global
 		{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9499D9AF-CD3C-4961-A360-0607817F7918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9499D9AF-CD3C-4961-A360-0607817F7918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9499D9AF-CD3C-4961-A360-0607817F7918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9499D9AF-CD3C-4961-A360-0607817F7918}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -130,6 +136,7 @@ Global
 		{98EE2D5F-F6B6-45AB-A534-3A44D26507DA} = {AB532FD0-2AE9-4283-9F7B-97ED5542CD8A}
 		{0E0B27AC-666C-4B5F-BFA8-A4299ACE2167} = {AB532FD0-2AE9-4283-9F7B-97ED5542CD8A}
 		{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01} = {AB532FD0-2AE9-4283-9F7B-97ED5542CD8A}
+		{9499D9AF-CD3C-4961-A360-0607817F7918} = {AB532FD0-2AE9-4283-9F7B-97ED5542CD8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1290807F-6B66-4159-854B-B17C2CA00949}
