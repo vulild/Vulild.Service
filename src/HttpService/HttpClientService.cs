@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using System.IO;
 
-namespace HttpService
+namespace Vulild.HttpService
 {
     public class HttpClientService : IHttpService
     {
@@ -49,7 +49,7 @@ namespace HttpService
             }
         }
 
-        public OUT Post<IN, OUT>(string url, IN param)
+        public OUT PostJson<IN, OUT>(string url, IN param)
         {
             var hc = GetHttpClient();
             BeforeSend?.Invoke(hc);
@@ -63,6 +63,25 @@ namespace HttpService
             };
 
             var res = hc.PostAsync($"{url}", sc).Result;
+            if (res.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var result = res.Content.ReadAsStringAsync().Result;
+                OUT resModel = JsonConvert.DeserializeObject<OUT>(result);
+
+                return resModel;
+
+            }
+            throw new HttpException(res.StatusCode);
+        }
+
+        public OUT PostForm<OUT>(string url, Dictionary<string, string> param)
+        {
+            var hc = GetHttpClient();
+            BeforeSend?.Invoke(hc);
+
+            FormUrlEncodedContent content = new FormUrlEncodedContent(param);
+
+            var res = hc.PostAsync($"{url}", content).Result;
             if (res.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var result = res.Content.ReadAsStringAsync().Result;

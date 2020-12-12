@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.TcpService",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vulild.Service.SQLite", "src\Vulild.Service.SQLite\Vulild.Service.SQLite.csproj", "{FD2AEBB7-2B65-4C7C-97CD-ADE665E2ED01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HttpService", "src\HttpService\HttpService.csproj", "{9499D9AF-CD3C-4961-A360-0607817F7918}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulild.HttpService", "src\HttpService\Vulild.HttpService.csproj", "{9499D9AF-CD3C-4961-A360-0607817F7918}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

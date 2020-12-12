@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace HttpService
+namespace Vulild.HttpService
 {
     public delegate void HttpSend(HttpClient httpClient);
     public interface IHttpService
@@ -11,7 +11,9 @@ namespace HttpService
         HttpSend AfterSend { get; set; }
 
 
-        OUT Post<IN, OUT>(string url, IN param);
+        OUT PostJson<IN, OUT>(string url, IN param);
+
+        OUT PostForm<OUT>(string url, System.Collections.Generic.Dictionary<string, string> param);
 
         OUT Get<OUT>(string url);
 
