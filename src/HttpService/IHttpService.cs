@@ -4,7 +4,7 @@ using System.Net.Http;
 namespace Vulild.HttpService
 {
     public delegate void HttpSend(HttpClient httpClient);
-    public interface IHttpService
+    public interface IHttpService: Service.IService
     {
         HttpSend BeforeSend { get; set; }
 

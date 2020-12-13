@@ -5,23 +5,26 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.IO;
+using Vulild.Service;
 
 namespace Vulild.HttpService
 {
-    public class HttpClientService : IHttpService
+    [Service.Attributes.ServiceOption(Type = typeof(HttpClientServiceOption))]
+    internal class HttpClientService : IHttpService
     {
-        private HttpClient _HttpClient;
+        internal HttpClient _HttpClient;
 
         public HttpSend BeforeSend { get; set; }
         public HttpSend AfterSend { get; set; }
+        public Option Option { get; set; }
 
         public HttpClient GetHttpClient()
         {
-            if (_HttpClient == null)
-            {
-                _HttpClient = new HttpClient();
-                _HttpClient.DefaultRequestHeaders.ExpectContinue = false;
-            }
+            //if (_HttpClient == null)
+            //{
+            //    _HttpClient = new HttpClient();
+            //    _HttpClient.DefaultRequestHeaders.ExpectContinue = false;
+            //}
             return _HttpClient;
 
         }
