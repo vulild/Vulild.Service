@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using Vulild.Core.FormatConversion;
 using Vulild.Core.Orm;
@@ -193,6 +194,25 @@ namespace Vulild.Service.DataBase
             string countSql = $"select count(*) from ({sql}) a";
 
             return ExecuteScalar(countSql, null).ToInt();
+        }
+
+        public List<T> ExecuteQuery<T>(Dictionary<string, object> wheres) where T : new()
+        {
+            string sql = $"select * from {typeof(T).Name} ";
+            if (wheres != null && wheres.Any())
+            {
+                string whereParam = "";
+                foreach (var where in wheres)
+                {
+                    if (!string.IsNullOrWhiteSpace(whereParam))
+                    {
+                        whereParam = $"{whereParam} and ";
+                    }
+                    whereParam = $"{whereParam} {where.Key}={GetParameterName(where.Key)}";
+                }
+                sql = $"{sql} {whereParam}";
+            }
+            return ExecuteQuery<T>(sql, wheres);
         }
 
         //public abstract string GetPageSql(string sql, int pageNum, int pageSize);

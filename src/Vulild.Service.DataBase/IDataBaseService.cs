@@ -26,6 +26,8 @@ namespace Vulild.Service.DataBase
 
         List<T> ExecuteQuery<T>(string sql, Dictionary<string, object> dbParams) where T : new();
 
+        List<T> ExecuteQuery<T>(Dictionary<string, object> where) where T : new();
+
         /// <summary>
         /// 读取第一行第一列
         /// </summary>

@@ -19,7 +19,7 @@ namespace Vulild.Service.NLogService
         /// <summary>
         /// 备份路径及名称规则,不带扩展名
         /// </summary>
-        public string ArchiveFileName { get; set; } = "${basedir}{Path.DirectorySeparatorChar}Logs{Path.DirectorySeparatorChar}${shortdate}{Path.DirectorySeparatorChar}log.{#####}";
+        public string ArchiveFileName { get; set; } = $"${{basedir}}{Path.DirectorySeparatorChar}Logs{Path.DirectorySeparatorChar}${{shortdate}}{Path.DirectorySeparatorChar}log.{{#####}}";
 
         /// <summary>
         /// 备份文件大小

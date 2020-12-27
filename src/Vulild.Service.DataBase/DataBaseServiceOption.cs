@@ -251,7 +251,7 @@ namespace Vulild.Service.DataBase
                     {
                         if (DbFreePool.Any())
                         {
-                            var key = DbFreePool.Max(a => a.Key);
+                            var key = DbFreePool.Where(a => a.Value.State == ConnectionState.Open).Max(a => a.Key);
                             DbFreePool.TryRemove(key, out conn);
                         }
                     }

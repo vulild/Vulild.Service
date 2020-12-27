@@ -12,7 +12,7 @@ namespace Vulild.Service.DataBase
     {
         public string Id;
 
-        protected virtual string TableName
+        public virtual string TableName
         {
             get
             {
