@@ -343,3 +343,5 @@ healthchecksdb
 /src/Vulild.Service.SQLite/Build/Vulild.Service.SQLite/netstandard2.1
 /Build/Vulild.Service.SQLite/net45
 /Build/Vulild.Service.SQLite/netstandard2.1
+/Build/Vulild.Service.Extension/netstandard2.1
+/Build/Vulild.Service.Extension/net45

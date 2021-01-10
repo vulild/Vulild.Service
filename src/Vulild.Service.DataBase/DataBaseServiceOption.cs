@@ -162,7 +162,7 @@ namespace Vulild.Service.DataBase
                     {
                         try
                         {
-                            var overTimes = this.DbFreePool.Where(a => (DateTime.Now - new DateTime(a.Key)).TotalMilliseconds > this.DbFreeCloseTimer).ToList();
+                            var overTimes = this.DbFreePool.Where(a => (DateTime.Now - new DateTime(a.Key)).TotalMilliseconds > this.DbFreeCloseTimer || a.Value.State == ConnectionState.Closed || a.Value.State == ConnectionState.Broken).ToList();
                             foreach (var over in overTimes)
                             {
                                 if (this.DbFreePool.TryRemove(over.Key, out IDbConnection conn))

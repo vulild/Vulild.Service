@@ -10,7 +10,7 @@ using Vulild.Service;
 namespace Vulild.HttpService
 {
     [Service.Attributes.ServiceOption(Type = typeof(HttpClientServiceOption))]
-    internal class HttpClientService : IHttpService
+    internal class HttpClientService : IHttpService, IHttpGetService, IHttpPostJsonService, IHttpPostFormService
     {
         internal HttpClient _HttpClient;
 

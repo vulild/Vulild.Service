@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.1212.1444.2</Version>
+    <Version>2020.1228.0915.2</Version>
     <OutputPath>../Build/Vulild.HttpService</OutputPath>
   </PropertyGroup>
 
