@@ -11,8 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\HttpService\Vulild.HttpService.csproj" />
-    <ProjectReference Include="..\src\Vulild.Service.Assembly\Vulild.Service.AssemblyService.csproj" />
+    <ProjectReference Include="..\Vulild.Service.Assembly\Vulild.Service.AssemblyService.csproj" />
   </ItemGroup>
 
 </Project>

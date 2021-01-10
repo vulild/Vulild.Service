@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Vulild.Service\Vulild.Service.csproj" />
+    <ProjectReference Include="..\Vulild.Service\Vulild.Service.csproj" />
   </ItemGroup>
 
 </Project>
