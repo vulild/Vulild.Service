@@ -20,12 +20,12 @@ namespace Vulild.Service.DataBase
             }
         }
 
-        public int Delete()
+        public bool Delete()
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
             string sql = $"delete from {TableName} where id={db.GetParameterName("Id")}";
 
-            return db.ExecuteNonQuery(sql, new Dictionary<string, object> { { "Id", Id } });
+            return db.ExecuteNonQuery(sql, new Dictionary<string, object> { { "Id", Id } }) > 0;
         }
 
         private Dictionary<string, object> getColumns()
@@ -40,7 +40,7 @@ namespace Vulild.Service.DataBase
             return pisDic;
         }
 
-        public int Insert()
+        public bool Insert()
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
 
@@ -51,7 +51,7 @@ namespace Vulild.Service.DataBase
             string valueSql = string.Join(",", colDic.Select(a => db.GetParameterName(a.Key)));
 
             string sql = $"insert into {TableName}({columnsSql})values({valueSql})";
-            return db.ExecuteNonQuery(sql, colDic);
+            return db.ExecuteNonQuery(sql, colDic) > 0;
         }
 
         public int Update()

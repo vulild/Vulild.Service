@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
-    <Version>2020.1229.1440.1</Version>
+    <Version>2021.0304.0844.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vulild</Authors>
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vulild.Core" Version="2020.1127.1559.1" />
+    <PackageReference Include="Vulild.Core" Version="2021.224.1356.2" />
   </ItemGroup>
 
   <!--<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
