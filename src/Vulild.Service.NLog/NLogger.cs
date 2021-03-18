@@ -19,5 +19,15 @@ namespace Vulild.Service.NLogService
         {
             this.logger.Info(log);
         }
+
+        public void WriteLog(string log, int level)
+        {
+            this.logger.Log(LogLevel.FromOrdinal(level), log);
+        }
+
+        public void WriteLog(Exception ex, int level = 4)
+        {
+            this.logger.Log(LogLevel.FromOrdinal(level), ex.ToString());
+        }
     }
 }

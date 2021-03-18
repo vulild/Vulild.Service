@@ -52,6 +52,10 @@ namespace Vulild.Service.NLogService
         /// 备注：设置此属性为true，有助于提高性能。
         /// </summary>
         public bool KeepFileOpen { get; set; } = true;
+
+        public int MinLevel { get; set; } = 2;
+
+        public int MaxLevel { get; set; } = 5;
         public override IService CreateService()
         {
             if (_log == null)
@@ -75,11 +79,7 @@ namespace Vulild.Service.NLogService
                     EnableArchiveFileCompression = true,
                     KeepFileOpen = KeepFileOpen
                 };
-                //var logconsole = new NLog.Targets.ConsoleTarget("logconsole");
-
-                // Rules for mapping loggers to targets            
-                //config.AddRule(LogLevel.Info, LogLevel.Fatal, logconsole, "NLOG");
-                config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile, "", true);
+                config.AddRule(LogLevel.FromOrdinal(MinLevel), LogLevel.FromOrdinal(MaxLevel), logfile, "", true);
 
                 // Apply config           
                 NLog.LogManager.Configuration = config;
