@@ -26,5 +26,11 @@ namespace Vulild.Service.MySql
         {
             return $"?{param}";
         }
+
+        protected override string GetPagingSql(string sql, int pageNum, int pageSize)
+        {
+            int startIndex = (pageNum - 1) * pageSize;
+            return $"{sql} limit  {startIndex},{pageSize}";
+        }
     }
 }

@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
-    <Version>2021.0304.1009.1</Version>
+    <Version>2021.0319.1318.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vulild</Authors>
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>

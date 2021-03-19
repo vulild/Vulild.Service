@@ -22,5 +22,14 @@ namespace Vulild.Service.SqlServer
         {
             return $"@{param}";
         }
+
+        protected override string GetPagingSql(string sql, int pageNum, int pageSize)
+        {
+            return $@"select top {pageSize} * 
+from(select row_number()
+over(order by id asc) as rownumber, *
+from ({sql})) temp_row
+where rownumber > (({pageNum} - 1) * {pageSize}); ";
+        }
     }
 }

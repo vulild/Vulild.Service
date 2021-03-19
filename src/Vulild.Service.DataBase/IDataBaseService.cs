@@ -63,8 +63,6 @@ namespace Vulild.Service.DataBase
         /// <returns></returns>
         bool ExecuteTransaction(params Func<IDbCommand, bool>[] executes);
 
-        int GetCount(string sql);
-
         //string GetPageSql(string sql, int pageNum, int pageSize);
 
         //List<T> GetPageData<T>(string sql, int pageNum, int pageSize) where T : new();

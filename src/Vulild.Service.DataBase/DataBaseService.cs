@@ -9,7 +9,7 @@ using Vulild.Core.Orm;
 namespace Vulild.Service.DataBase
 {
     public delegate void OnDataBaseServiceDispose(IDbConnection service);
-    public abstract class DataBaseService : IDataBaseService/*, IDisposable*/
+    public abstract class DataBaseService : IDataBaseService, IPagingService/*, IDisposable*/
     {
         /// <summary>
         /// 连接使用完成释放时触发的事件
@@ -189,11 +189,11 @@ namespace Vulild.Service.DataBase
 
         public abstract string GetParameterName(string param);
 
-        public virtual int GetCount(string sql)
+        public virtual int GetCount(string sql, Dictionary<string, object> dbParams)
         {
-            string countSql = $"select count(*) from ({sql}) a";
+            string countSql = GetCountSql(sql);//$"select count(*) from ({sql}) a";
 
-            return ExecuteScalar(countSql, null).ToInt();
+            return ExecuteScalar(countSql, dbParams).ToInt();
         }
 
         public List<T> ExecuteQuery<T>(Dictionary<string, object> wheres) where T : new()
@@ -213,6 +213,55 @@ namespace Vulild.Service.DataBase
                 sql = $"{sql} {whereParam}";
             }
             return ExecuteQuery<T>(sql, wheres);
+        }
+
+        public void ExecuteQuery(string sql, Dictionary<string, object> dbParams, int pageNum, int pageSize, out int pageCount, Action<IDataReader> readAction)
+        {
+            string pageSql = GetPagingSql(sql, pageNum, pageSize);
+
+            pageCount = GetCount(sql, dbParams);
+
+            ExecuteQuery(pageSql, dbParams, readAction);
+        }
+
+        public List<T> ExecuteQuery<T>(string sql, Dictionary<string, object> dbParams, int pageNum, int pageSize, out int pageCount) where T : new()
+        {
+            string pageSql = GetPagingSql(sql, pageNum, pageSize);
+
+            pageCount = GetCount(sql, dbParams);
+
+            return ExecuteQuery<T>(pageSql, dbParams);
+        }
+
+        public List<T> ExecuteQuery<T>(Dictionary<string, object> wheres, int pageNum, int pageSize, out int pageCount) where T : new()
+        {
+            string sql = $"select * from {typeof(T).Name} ";
+            if (wheres != null && wheres.Any())
+            {
+                string whereParam = "";
+                foreach (var where in wheres)
+                {
+                    if (!string.IsNullOrWhiteSpace(whereParam))
+                    {
+                        whereParam = $"{whereParam} and ";
+                    }
+                    whereParam = $"{whereParam} {where.Key}={GetParameterName(where.Key)}";
+                }
+                sql = $"{sql} {whereParam}";
+            }
+
+            string pageSql = GetPagingSql(sql, pageNum, pageSize);
+
+            pageCount = GetCount(sql, wheres);
+
+            return ExecuteQuery<T>(pageSql, wheres);
+        }
+
+        protected abstract string GetPagingSql(string sql, int pageNum, int pageSize);
+
+        protected virtual string GetCountSql(string sql)
+        {
+            return $"select count(*) from ({sql}) a";
         }
 
         //public abstract string GetPageSql(string sql, int pageNum, int pageSize);

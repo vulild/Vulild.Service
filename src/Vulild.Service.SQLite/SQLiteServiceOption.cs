@@ -10,6 +10,9 @@ namespace Vulild.Service.SQLite
     public class SQLiteServiceOption : DataBase.DataBaseServiceOption
     {
         public string FileName { get; set; }
+
+        public string Password { get; set; }
+
         protected override DataBaseService GetService()
         {
             return new SQLiteService();
@@ -17,7 +20,7 @@ namespace Vulild.Service.SQLite
 
         protected override IDbConnection GetRealDb()
         {
-            var conn = new SQLiteConnection($"data source={FileName}");
+            var conn = new SQLiteConnection($"data source={FileName}{(!string.IsNullOrWhiteSpace(Password) ? $";Password={Password}" : "")}");
             conn.Open();
             return conn;
         }
