@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net45;net5</TargetFrameworks>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2020.1112.1450.1</Version>
+    <Version>2021.0319.1643.1</Version>
     <Authors>Vulild</Authors>
     <Company>Vulild</Company>
     <Product>Vulild</Product>
   </PropertyGroup>
 
-  <PropertyGroup >
+  <PropertyGroup>
     <OutputPath>../Build/Vulild.Service.AssemblyService</OutputPath>
   </PropertyGroup>
 

@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
-    <Version>2021.0319.1318.1</Version>
+    <TargetFrameworks>netstandard2.1;net45;net5</TargetFrameworks>
+    <Version>2021.0319.1643.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -15,7 +15,13 @@
     <ProjectReference Include="..\Vulild.Service\Vulild.Service.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="System.Data.SqlClient">
+      <Version>4.8.2</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net5'">
     <PackageReference Include="System.Data.SqlClient">
       <Version>4.8.2</Version>
     </PackageReference>

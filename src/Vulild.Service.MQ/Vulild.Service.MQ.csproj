@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
+    <TargetFrameworks>NETSTANDARD2.1;net45;net5</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>MQ服务抽象</Description>
-    <Version>2020.0521.0843</Version>
+    <Version>2021.0319.1643.1</Version>
     <Authors>vulild</Authors>
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
     <RepositoryUrl>https://github.com/vulild/Vulild.Service</RepositoryUrl>

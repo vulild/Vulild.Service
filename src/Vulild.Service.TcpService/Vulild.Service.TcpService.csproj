@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
+    <TargetFrameworks>NETSTANDARD2.1;net45;net5</TargetFrameworks>
+    <Version>2021.0319.1643.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

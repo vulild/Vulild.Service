@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
-    <Version>2020.0521.0843</Version>
+    <TargetFrameworks>NETSTANDARD2.1;net45;net5</TargetFrameworks>
+    <Version>2021.0319.1643.1</Version>
     <Description>redis服务封装</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vulild</Authors>
@@ -15,7 +15,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSRedisCore" Version="3.5.5" />
+    <PackageReference Include="CSRedisCore" Version="3.6.6" />
   </ItemGroup>
 
   <ItemGroup>

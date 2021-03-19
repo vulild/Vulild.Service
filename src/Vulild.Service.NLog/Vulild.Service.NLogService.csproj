@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>NETSTANDARD2.1;net45</TargetFrameworks>
-    <Version>2021.0319.1110.1</Version>
+    <TargetFrameworks>NETSTANDARD2.1;net45;net5</TargetFrameworks>
+    <Version>2021.0319.1643.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vulild</Authors>
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="NLog" Version="4.7.0" />
+    <PackageReference Include="NLog" Version="4.7.8" />
   </ItemGroup>
 
   <ItemGroup>
