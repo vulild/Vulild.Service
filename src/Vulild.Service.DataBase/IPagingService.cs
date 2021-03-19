@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Vulild.Service.DataBase
 {
-    public interface IPagingService
+    public interface IPagingService : IService
     {
         /// <summary>
         /// 查询
