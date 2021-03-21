@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Text;
+using Vulild.Service.Attributes;
 using Vulild.Service.DataBase;
 
 namespace Vulild.Service.SQLite
 {
+    [ServiceOption(Type = typeof(SQLiteService))]
     public class SQLiteServiceOption : DataBase.DataBaseServiceOption
     {
         public string FileName { get; set; }
