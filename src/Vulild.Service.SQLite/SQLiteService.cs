@@ -32,7 +32,8 @@ namespace Vulild.Service.SQLite
             if (fields.Any())
             {
                 string strField = String.Join(",", fields);
-                string createSql = $"create table {type.Name} {strField}";
+                string createSql = $"create table {type.Name} ({type.Name} {strField})";
+                ExecuteNonQuery(createSql, null);
             }
         }
 
@@ -48,7 +49,7 @@ namespace Vulild.Service.SQLite
 
         public override bool TableExist(string tableName)
         {
-            string sql = $"SELECT Count(*) FROM sqlite_masterS WHERE type='table' AND name = '{tableName}'";
+            string sql = $"SELECT Count(*) FROM sqlite_master WHERE type='table' AND name = '{tableName}'";
             int? tableCount = ExecuteScalar(sql, null).ToIntNull();
             if (tableCount == null || tableCount == 0)
             {

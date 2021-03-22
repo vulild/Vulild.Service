@@ -9,7 +9,7 @@ namespace Vulild.Service.DataBase
     {
         public string Convert2DbType(DbFieldAttribute attr)
         {
-            return $"{attr.FieldName} {attr.Type} {attr.IsNull}";
+            return $"{attr.FieldName} {attr.Type} {(attr.IsNull?"null":"not null")}";
         }
     }
 }
