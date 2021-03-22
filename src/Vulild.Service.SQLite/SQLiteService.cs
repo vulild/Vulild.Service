@@ -32,14 +32,14 @@ namespace Vulild.Service.SQLite
             if (fields.Any())
             {
                 string strField = String.Join(",", fields);
-                string createSql = $"create table {type.Name} ({type.Name} {strField})";
+                string createSql = $"create table {type.Name} ({strField})";
                 ExecuteNonQuery(createSql, null);
             }
         }
 
         public override IDbDataParameter GetParameter(KeyValuePair<string, object> value)
         {
-            return new SQLiteParameter(value.Key, value.Value);
+            return new SQLiteParameter(GetParameterName(value.Key), value.Value);
         }
 
         public override string GetParameterName(string param)

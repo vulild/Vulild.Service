@@ -32,7 +32,7 @@ namespace Vulild.Service.MySql
             if (fields.Any())
             {
                 string strField = String.Join(",", fields);
-                string createSql = $"create table {type.Name} ({type.Name} {strField})";
+                string createSql = $"create table {type.Name} ({strField})";
                 ExecuteNonQuery(createSql, null);
             }
         }
