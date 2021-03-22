@@ -264,6 +264,10 @@ namespace Vulild.Service.DataBase
             return $"select count(*) from ({sql}) a";
         }
 
+        public abstract bool TableExist(string tableName);
+
+        public abstract void CreateTable<T>();
+
         //public abstract string GetPageSql(string sql, int pageNum, int pageSize);
 
         //public List<T> GetPageData<T>(string sql, int pageNum, int pageSize, Dictionary<string, object> dbParams) where T : new()

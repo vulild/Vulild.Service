@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vulild.Core" Version="2020.1127.1559.2" />
+    <PackageReference Include="Vulild.Core" Version="2021.322.1052.3" />
   </ItemGroup>
 
   <!--<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">

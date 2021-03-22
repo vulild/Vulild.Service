@@ -8,7 +8,7 @@ using Vulild.Core.Orm;
 
 namespace Vulild.Service.DataBase
 {
-    public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete
+    public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete,IDbTable
     {
         public string Id;
 
@@ -65,6 +65,16 @@ namespace Vulild.Service.DataBase
             string sql = $"update {TableName} set {colSql} where id={db.GetParameterName("Id")}";
 
             return db.ExecuteNonQuery(sql, colDic);
+        }
+
+        public bool TableExist()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateTable()
+        {
+            throw new NotImplementedException();
         }
     }
 }

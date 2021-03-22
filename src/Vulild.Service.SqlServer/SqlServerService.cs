@@ -13,6 +13,11 @@ namespace Vulild.Service.SqlServer
     [ServiceOption(Type = typeof(SqlServerServieOption))]
     public class SqlServerService : DataBaseService
     {
+        public override void CreateTable<T>()
+        {
+            throw new NotImplementedException();
+        }
+
         public override IDbDataParameter GetParameter(KeyValuePair<string, object> value)
         {
             return new SqlParameter(value.Key, value.Value);
@@ -21,6 +26,11 @@ namespace Vulild.Service.SqlServer
         public override string GetParameterName(string param)
         {
             return $"@{param}";
+        }
+
+        public override bool TableExist(string tableName)
+        {
+            throw new NotImplementedException();
         }
 
         protected override string GetPagingSql(string sql, int pageNum, int pageSize)

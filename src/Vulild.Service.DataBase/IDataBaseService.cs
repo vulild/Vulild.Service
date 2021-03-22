@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using Vulild.Core;
+using Vulild.Core.Orm;
 
 namespace Vulild.Service.DataBase
 {
@@ -62,6 +63,10 @@ namespace Vulild.Service.DataBase
         /// <param name="executes"></param>
         /// <returns></returns>
         bool ExecuteTransaction(params Func<IDbCommand, bool>[] executes);
+
+        bool TableExist(string tableName);
+
+        void CreateTable<T>();
 
         //string GetPageSql(string sql, int pageNum, int pageSize);
 
