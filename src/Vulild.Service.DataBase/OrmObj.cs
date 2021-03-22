@@ -8,9 +8,10 @@ using Vulild.Core.Orm;
 
 namespace Vulild.Service.DataBase
 {
-    public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete,IDbTable
+    public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete, IDbTable
     {
-        public string Id;
+        [DbField(FieldName = "Id", IsNull = false, Type = "varchar(255)")]
+        public string Id { get; set; }
 
         public virtual string TableName
         {
