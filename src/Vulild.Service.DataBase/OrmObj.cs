@@ -33,10 +33,14 @@ namespace Vulild.Service.DataBase
         {
             Dictionary<string, object> pisDic = new Dictionary<string, object>();
             Type type = GetType();
-            FieldInfo[] fis = type.GetFields();
-            foreach (var fi in fis)
+            PropertyInfo[] pis = type.GetProperties();
+            foreach (var pi in pis)
             {
-                pisDic.Add(fi.Name, fi.GetValue(this));
+                var attr = pi.GetCustomAttribute<DbFieldAttribute>();
+                if (attr != null)
+                {
+                    pisDic.Add(pi.Name, pi.GetValue(this));
+                }
             }
             return pisDic;
         }
