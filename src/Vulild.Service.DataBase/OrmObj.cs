@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Vulild.Core.Algorithms;
 using Vulild.Core.Orm;
 using Vulild.Core.Orm;
 
@@ -11,7 +12,7 @@ namespace Vulild.Service.DataBase
     public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete, IDbTable
     {
         [DbField(FieldName = "Id", IsNull = false, Type = "varchar(255)")]
-        public string Id { get; set; }
+        public long Id { get; set; }
 
         public virtual string TableName
         {
@@ -49,7 +50,7 @@ namespace Vulild.Service.DataBase
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
 
-            Id = Guid.NewGuid().ToString();
+            Id = new Snowflake().NewId();
 
             var colDic = getColumns();
             string columnsSql = string.Join(" , ", colDic.Keys);
