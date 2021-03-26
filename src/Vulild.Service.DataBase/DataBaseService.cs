@@ -210,7 +210,7 @@ namespace Vulild.Service.DataBase
                     }
                     whereParam = $"{whereParam} {where.Key}={GetParameterName(where.Key)}";
                 }
-                sql = $"{sql} {whereParam}";
+                sql = $"{sql} where {whereParam}";
             }
             return ExecuteQuery<T>(sql, wheres);
         }

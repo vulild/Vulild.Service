@@ -39,7 +39,7 @@ namespace Vulild.Service.SQLite
 
         public override IDbDataParameter GetParameter(KeyValuePair<string, object> value)
         {
-            return new SQLiteParameter(GetParameterName(value.Key), value.Value);
+            return new SQLiteParameter(value.Key, value.Value);
         }
 
         public override string GetParameterName(string param)
