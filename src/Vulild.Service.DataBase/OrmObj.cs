@@ -11,7 +11,7 @@ namespace Vulild.Service.DataBase
 {
     public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete, IDbTable
     {
-        [DbField(FieldName = "Id", IsNull = false, Type = "varchar(255)")]
+        [DbField(FieldName = "Id", IsNull = false, Type = "bigint")]
         public long Id { get; set; }
 
         public virtual string TableName
