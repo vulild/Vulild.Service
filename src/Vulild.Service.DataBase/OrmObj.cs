@@ -14,6 +14,7 @@ namespace Vulild.Service.DataBase
         [DbField(FieldName = "Id", IsNull = false, Type = "bigint")]
         public long Id { get; set; }
 
+        [NotDbField]
         public virtual string TableName
         {
             get
@@ -37,8 +38,8 @@ namespace Vulild.Service.DataBase
             PropertyInfo[] pis = type.GetProperties();
             foreach (var pi in pis)
             {
-                var attr = pi.GetCustomAttribute<DbFieldAttribute>();
-                if (attr != null)
+                var attr = pi.GetCustomAttribute<NotDbFieldAttribute>();
+                if (attr == null)
                 {
                     pisDic.Add(pi.Name, pi.GetValue(this));
                 }
