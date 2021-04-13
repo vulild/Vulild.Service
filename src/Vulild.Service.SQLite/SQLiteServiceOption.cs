@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
 using System.Text;
 using Vulild.Service.Attributes;
 using Vulild.Service.DataBase;
@@ -22,7 +22,7 @@ namespace Vulild.Service.SQLite
 
         protected override IDbConnection GetRealDb()
         {
-            var conn = new SQLiteConnection($"data source={FileName}{(!string.IsNullOrWhiteSpace(Password) ? $";Password={Password}" : "")}");
+            var conn = new SqliteConnection($"data source={FileName}{(!string.IsNullOrWhiteSpace(Password) ? $";Password={Password}" : "")}");
             conn.Open();
             return conn;
         }

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SQLite;
 using System.Linq;
 using System.Reflection;
 using Vulild.Core.FormatConversion;
@@ -39,7 +39,7 @@ namespace Vulild.Service.SQLite
 
         public override IDbDataParameter GetParameter(KeyValuePair<string, object> value)
         {
-            return new SQLiteParameter(value.Key, value.Value);
+            return new SqliteParameter(value.Key, value.Value);
         }
 
         public override string GetParameterName(string param)
