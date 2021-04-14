@@ -9,7 +9,7 @@ namespace Vulild.Service.MySql
 {
     public class MySqlDbTypeAdapter : IDbTypeAdapter
     {
-        public string Convert2DbType(DbFieldAttribute attr)
+        public string Convert2DbType(PropertyInfo attr)
         {
             //var attr = pi.GetCustomAttribute<DbFieldAttribute>();
             //string fieldName = pi.Name;
@@ -31,19 +31,20 @@ namespace Vulild.Service.MySql
             //    type = "DateTime";
             //}
             //string isNull = "null";
-            if (attr != null)
-            {
-                //if (!string.IsNullOrWhiteSpace(attr.FieldName))
-                //{
-                //    fieldName = attr.FieldName;
-                //}
-                //if (!string.IsNullOrWhiteSpace(attr.Type))
-                //{
-                //    type = attr.Type;
-                //}
-                //isNull = attr.IsNull ? "null" : "not null";
-            }
-            return $"{attr.FieldName} {attr.Type} {attr.IsNull}";
+            //if (attr != null)
+            //{
+            //    //if (!string.IsNullOrWhiteSpace(attr.FieldName))
+            //    //{
+            //    //    fieldName = attr.FieldName;
+            //    //}
+            //    //if (!string.IsNullOrWhiteSpace(attr.Type))
+            //    //{
+            //    //    type = attr.Type;
+            //    //}
+            //    //isNull = attr.IsNull ? "null" : "not null";
+            //}
+            //return $"{attr.FieldName} {attr.Type} {attr.IsNull}";
+            return "";
 
         }
     }

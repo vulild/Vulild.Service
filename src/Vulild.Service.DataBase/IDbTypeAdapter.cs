@@ -8,6 +8,6 @@ namespace Vulild.Service.DataBase
 {
     public interface IDbTypeAdapter
     {
-        string Convert2DbType(DbFieldAttribute pi);
+        string Convert2DbType(PropertyInfo pi);
     }
 }

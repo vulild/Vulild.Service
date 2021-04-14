@@ -23,10 +23,10 @@ namespace Vulild.Service.SQLite
             List<string> fields = new List<string>();
             foreach (var pi in pis)
             {
-                var attr = pi.GetCustomAttribute<DbFieldAttribute>();
-                if (attr != null)
+                var attr = pi.GetCustomAttribute<NotDbFieldAttribute>();
+                if (attr == null)
                 {
-                    fields.Add(adapter.Convert2DbType(attr));
+                    fields.Add(adapter.Convert2DbType(pi));
                 }
             }
             if (fields.Any())
