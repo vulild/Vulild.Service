@@ -51,7 +51,7 @@ namespace Vulild.Service.DataBase
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
 
-            Id = new Snowflake().NewId();
+            Id = Snowflake.Instance.NewId();
 
             var colDic = getColumns();
             string columnsSql = string.Join(" , ", colDic.Keys);
