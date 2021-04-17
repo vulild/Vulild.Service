@@ -14,7 +14,7 @@ namespace Vulild.Service.NLogService
         /// <summary>
         /// 日志文件名称
         /// </summary>
-        public string FileName { get; set; } = $"${{basedir}}{Path.DirectorySeparatorChar}Logs{Path.DirectorySeparatorChar}log{DateTime.Now.ToString("yyyyMMddHHmmss")}.txt";
+        public string FileName { get; set; } = $"${{basedir}}{Path.DirectorySeparatorChar}Logs{Path.DirectorySeparatorChar}log{DateTime.Now.ToString("yyyyMMddHHmmss")}.log";
 
         /// <summary>
         /// 备份路径及名称规则,不带扩展名
@@ -77,7 +77,8 @@ namespace Vulild.Service.NLogService
                     ConcurrentWrites = ConcurrentWrites,
                     MaxArchiveFiles = MaxArchiveFiles,
                     EnableArchiveFileCompression = true,
-                    KeepFileOpen = KeepFileOpen
+                    KeepFileOpen = KeepFileOpen,
+                    Layout= "${longdate}||${level}||${logger}||${message}||${exception:format=ToString:innerFormat=ToString:maxInnerExceptionLevel=10:separator=\r\n}||end"
                 };
                 config.AddRule(LogLevel.FromOrdinal(MinLevel), LogLevel.FromOrdinal(MaxLevel), logfile, "", true);
 
