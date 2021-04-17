@@ -78,7 +78,7 @@ namespace Vulild.Service.NLogService
                     MaxArchiveFiles = MaxArchiveFiles,
                     EnableArchiveFileCompression = true,
                     KeepFileOpen = KeepFileOpen,
-                    Layout= "${longdate}||${level}||${logger}||${message}||${exception:format=ToString:innerFormat=ToString:maxInnerExceptionLevel=10:separator=\r\n}||end"
+                    Layout = "${longdate}||${level}||${logger}||${message}||${exception:format=ToString:innerFormat=ToString:maxInnerExceptionLevel=10:separator=" + Environment.NewLine + "}||end"
                 };
                 config.AddRule(LogLevel.FromOrdinal(MinLevel), LogLevel.FromOrdinal(MaxLevel), logfile, "", true);
 
