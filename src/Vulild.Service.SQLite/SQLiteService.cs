@@ -58,10 +58,14 @@ namespace Vulild.Service.SQLite
             return true;
         }
 
-        protected override string GetPagingSql(string sql, int pageNum, int pageSize)
+        protected override string GetPagingSql(string sql, string orders, int pageNum, int pageSize)
         {
+            if (string.IsNullOrWhiteSpace(orders))
+            {
+                orders = "id";
+            }
             int startIndex = (pageNum - 1) * pageSize;
-            return $"{sql} limit  {startIndex},{pageSize}";
+            return $"{sql} order by {orders} limit  {startIndex},{pageSize}";
         }
     }
 }

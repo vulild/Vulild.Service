@@ -33,12 +33,16 @@ namespace Vulild.Service.SqlServer
             throw new NotImplementedException();
         }
 
-        protected override string GetPagingSql(string sql, int pageNum, int pageSize)
+        protected override string GetPagingSql(string sql, string orders, int pageNum, int pageSize)
         {
+            if (string.IsNullOrWhiteSpace(orders))
+            {
+                orders = "id";
+            }
             return $@"select top {pageSize} * 
 from(select row_number()
-over(order by id asc) as rownumber, *
-from ({sql})) temp_row
+over(order by {orders}) as rownumber, *
+from ({sql}) temp) temp_row
 where rownumber > (({pageNum} - 1) * {pageSize}); ";
         }
     }

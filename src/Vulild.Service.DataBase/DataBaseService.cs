@@ -215,25 +215,25 @@ namespace Vulild.Service.DataBase
             return ExecuteQuery<T>(sql, wheres);
         }
 
-        public void ExecuteQuery(string sql, Dictionary<string, object> dbParams, int pageNum, int pageSize, out int pageCount, Action<IDataReader> readAction)
+        public void ExecuteQuery(string sql, string orders, Dictionary<string, object> dbParams, int pageNum, int pageSize, out int pageCount, Action<IDataReader> readAction)
         {
-            string pageSql = GetPagingSql(sql, pageNum, pageSize);
+            string pageSql = GetPagingSql(sql, orders, pageNum, pageSize);
 
             pageCount = GetCount(sql, dbParams);
 
             ExecuteQuery(pageSql, dbParams, readAction);
         }
 
-        public List<T> ExecuteQuery<T>(string sql, Dictionary<string, object> dbParams, int pageNum, int pageSize, out int pageCount) where T : new()
+        public List<T> ExecuteQuery<T>(string sql, string orders, Dictionary<string, object> dbParams, int pageNum, int pageSize, out int pageCount) where T : new()
         {
-            string pageSql = GetPagingSql(sql, pageNum, pageSize);
+            string pageSql = GetPagingSql(sql, orders, pageNum, pageSize);
 
             pageCount = GetCount(sql, dbParams);
 
             return ExecuteQuery<T>(pageSql, dbParams);
         }
 
-        public List<T> ExecuteQuery<T>(Dictionary<string, object> wheres, int pageNum, int pageSize, out int pageCount) where T : new()
+        public List<T> ExecuteQuery<T>(Dictionary<string, object> wheres, string orders, int pageNum, int pageSize, out int pageCount) where T : new()
         {
             string sql = $"select * from {typeof(T).Name} ";
             if (wheres != null && wheres.Any())
@@ -247,17 +247,17 @@ namespace Vulild.Service.DataBase
                     }
                     whereParam = $"{whereParam} {where.Key}={GetParameterName(where.Key)}";
                 }
-                sql = $"{sql} {whereParam}";
+                sql = $"{sql} where {whereParam}";
             }
 
-            string pageSql = GetPagingSql(sql, pageNum, pageSize);
+            string pageSql = GetPagingSql(sql,orders, pageNum, pageSize);
 
             pageCount = GetCount(sql, wheres);
 
             return ExecuteQuery<T>(pageSql, wheres);
         }
 
-        protected abstract string GetPagingSql(string sql, int pageNum, int pageSize);
+        protected abstract string GetPagingSql(string sql, string orders, int pageNum, int pageSize);
 
         protected virtual string GetCountSql(string sql)
         {
