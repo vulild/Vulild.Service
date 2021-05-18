@@ -250,7 +250,7 @@ namespace Vulild.Service.DataBase
                 sql = $"{sql} where {whereParam}";
             }
 
-            string pageSql = GetPagingSql(sql,orders, pageNum, pageSize);
+            string pageSql = GetPagingSql(sql, orders, pageNum, pageSize);
 
             pageCount = GetCount(sql, wheres);
 
@@ -265,6 +265,11 @@ namespace Vulild.Service.DataBase
         }
 
         public abstract bool TableExist(string tableName);
+
+        public bool TableExist<T>()
+        {
+            return TableExist(typeof(T).Name);
+        }
 
         public abstract void CreateTable<T>();
 

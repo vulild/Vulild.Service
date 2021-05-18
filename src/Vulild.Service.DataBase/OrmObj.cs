@@ -9,7 +9,7 @@ using Vulild.Core.Orm;
 
 namespace Vulild.Service.DataBase
 {
-    public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete, IDbTable
+    public abstract class OrmObj : IDbUpdate, IDbInsert, IDbDelete
     {
         [DbField(FieldName = "Id", IsNull = false, Type = "bigint")]
         public long Id { get; set; }
@@ -74,14 +74,16 @@ namespace Vulild.Service.DataBase
             return db.ExecuteNonQuery(sql, colDic);
         }
 
-        public bool TableExist()
+        public int Save()
         {
-            throw new NotImplementedException();
-        }
-
-        public void CreateTable()
-        {
-            throw new NotImplementedException();
+            if (Id == 0)
+            {
+                return Insert();
+            }
+            else
+            {
+                return Update();
+            }
         }
     }
 }

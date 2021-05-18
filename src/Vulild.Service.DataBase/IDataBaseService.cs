@@ -66,6 +66,8 @@ namespace Vulild.Service.DataBase
 
         bool TableExist(string tableName);
 
+        bool TableExist<T>();
+
         void CreateTable<T>();
 
         //string GetPageSql(string sql, int pageNum, int pageSize);
