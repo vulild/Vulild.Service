@@ -12,6 +12,10 @@ namespace Vulild.HttpService
     [Service.Attributes.ServiceOption(Type = typeof(HttpClientServiceOption))]
     internal class HttpClientService : IHttpService, IHttpGetService, IHttpPostJsonService, IHttpPostFormService
     {
+        public HttpClientService(HttpClient client)
+        {
+            _HttpClient = client;
+        }
         internal HttpClient _HttpClient;
 
         public HttpSend BeforeSend { get; set; }
