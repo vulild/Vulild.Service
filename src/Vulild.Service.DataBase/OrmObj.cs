@@ -47,6 +47,16 @@ namespace Vulild.Service.DataBase
             return pisDic;
         }
 
+        public string GetInsertSql()
+        {
+            var colDic = getColumns();
+            string columnsSql = string.Join(" , ", colDic.Keys);
+            string valueSql = string.Join(" ',' ", colDic.Values);
+
+            string sql = $"insert into {TableName}({columnsSql})values('{valueSql}')";
+            return sql;
+        }
+
         public int Insert()
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
