@@ -64,6 +64,13 @@ namespace Vulild.Service.DataBase
         /// <returns></returns>
         bool ExecuteTransaction(params Func<IDbCommand, bool>[] executes);
 
+        /// <summary>
+        /// 执行事务
+        /// </summary>
+        /// <param name="executes"></param>
+        /// <returns></returns>
+        bool ExecuteTransaction(IEnumerable<Func<IDbCommand, bool>> executes);
+
         bool TableExist(string tableName);
 
         bool TableExist<T>();

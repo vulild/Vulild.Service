@@ -185,6 +185,45 @@ namespace Vulild.Service.DataBase
 
         }
 
+        public bool ExecuteTransaction(IEnumerable<Func<IDbCommand, bool>> executes)
+        {
+            IDbConnection conn = _ThisOption.GetDbConnection();
+            try
+            {
+                using (var trans = conn.BeginTransaction())
+                {
+                    using (var cmd = conn.CreateCommand())
+                    {
+                        cmd.Transaction = trans;
+                        try
+                        {
+                            foreach (var execute in executes)
+                            {
+                                if (!execute(cmd))
+                                {
+                                    trans.Rollback();
+                                    return false;
+                                }
+                            }
+                            trans.Commit();
+                            return true;
+                        }
+                        catch (Exception)
+                        {
+                            trans.Rollback();
+                            throw;
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                FreeDbConnection(conn, true);
+            }
+
+        }
+
+
         public abstract IDbDataParameter GetParameter(KeyValuePair<string, object> value);
 
         public abstract string GetParameterName(string param);
