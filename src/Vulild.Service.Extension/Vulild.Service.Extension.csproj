@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net45;net5</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;net45;net5</TargetFrameworks>
   </PropertyGroup>
 
   <PropertyGroup>
     <OutputPath>../Build/Vulild.Service.Extension</OutputPath>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2021.0319.1643.1</Version>
+    <Version>2021.0613.2150.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

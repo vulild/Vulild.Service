@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net5</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;net5</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2021.0428.2316.1</Version>
+    <Version>2021.0613.2150.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -14,15 +14,9 @@
     <ProjectReference Include="..\Vulild.Service.DataBase\Vulild.Service.DataBase.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
+  <ItemGroup>
     <PackageReference Include="Microsoft.Data.Sqlite">
-      <Version>5.0.5</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net5'">
-    <PackageReference Include="Microsoft.Data.Sqlite">
-      <Version>5.0.5</Version>
+      <Version>5.0.7</Version>
     </PackageReference>
   </ItemGroup>
 

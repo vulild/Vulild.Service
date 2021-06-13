@@ -1,14 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net45;net5</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;net45;net5</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>2021.0519.1000.1</Version>
+    <Version>2021.0613.2150.2</Version>
     <OutputPath>../Build/Vulild.HttpService</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 

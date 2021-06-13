@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
-    <Version>2020.0521.0855</Version>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;net5;net45</TargetFrameworks>
+    <Version>2021.0613.2150.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vulild</Authors>
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
@@ -13,16 +13,24 @@
     <OutputPath>../Build/Vulild.Service.ActiveMq</OutputPath>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
-    <PackageReference Include="Vulild.ActiveMq" Version="2020.520.1627.0" />
+  <!--<ItemGroup Condition="'$(TargetFramework)'=='net5'">
+    <PackageReference Include="Vulild.ActiveMq" Version="2021.613.2140.1" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)'=='net45'">
-    <PackageReference Include="Apache.NMS.ActiveMQ" Version="1.7.2" />
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
+    <PackageReference Include="Vulild.ActiveMq" Version="2021.613.2140.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <PackageReference Include="Vulild.ActiveMq" Version="2021.613.2140.1" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <PackageReference Include="Apache.NMS.ActiveMQ" Version="1.8.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>

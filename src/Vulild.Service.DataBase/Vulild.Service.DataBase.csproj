@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>NETSTANDARD2.1;net45;net5</TargetFrameworks>
-    <Version>2021.0529.0820.1</Version>
+    <TargetFrameworks>NETSTANDARD2.1;netstandard2.0;net45;net5</TargetFrameworks>
+    <Version>2021.0613.2150.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>vulild</Authors>
     <PackageProjectUrl>https://github.com/vulild/Vulild.Service</PackageProjectUrl>
@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vulild.Core" Version="2021.416.1417.1" />
+    <PackageReference Include="Vulild.Core" Version="2021.613.2125.1" />
   </ItemGroup>
 
   <!--<ItemGroup Condition="'$(TargetFramework)'=='netstandard2.1'">
