@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Vulild.Core.Algorithms;
+using Vulild.Core.FormatConversion;
 using Vulild.Core.Orm;
 using Vulild.Core.Orm;
 
@@ -13,6 +14,10 @@ namespace Vulild.Service.DataBase
     {
         [DbField(FieldName = "Id", IsNull = false, Type = "bigint")]
         public long Id { get; set; }
+
+        public long CreateTime { get; set; }
+
+        public long UpdateTime { get; set; }
 
         [NotDbField]
         public virtual string TableName
@@ -63,6 +68,8 @@ namespace Vulild.Service.DataBase
 
             Id = Snowflake.Instance.NewId();
 
+            CreateTime = DateTime.Now.ToString("yyyyyMMddHHmmss").ToLong();
+
             var colDic = getColumns();
             string columnsSql = string.Join(" , ", colDic.Keys);
             string valueSql = string.Join(",", colDic.Select(a => db.GetParameterName(a.Key)));
@@ -74,6 +81,8 @@ namespace Vulild.Service.DataBase
         public int Update()
         {
             var db = ServiceUtil.GetService<IDataBaseService>();
+
+            UpdateTime = DateTime.Now.ToString("yyyyyMMddHHmmss").ToLong();
 
             var colDic = getColumns();
 
